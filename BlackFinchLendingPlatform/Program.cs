@@ -1,11 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information   start 17:50 end 19:00
+﻿
 using BlackFinchLendingPlatform;
 
-Console.WriteLine("Black Finch Lender Calculator /n");
+Console.WriteLine("Black Finch Lender Calculator \n");
 
-var engine = new LendingEngine();
+var lendingEngine = new LendingEngine();
 
-var list = new List<LendingItem>() {
+var dataSet = new List<LendingItem>() {
    new LendingItem(1500001,0,0),
     new LendingItem(99999,0,0), 
     new LendingItem(1000000,3000000,950),
@@ -13,11 +13,18 @@ var list = new List<LendingItem>() {
     new LendingItem(1000000,2000000,877)
 };
 
+lendingEngine.LendingItems = dataSet;
 
-foreach (var item in list)
+foreach (var item in lendingEngine.LendingItems)
 {
-  Console.WriteLine(engine.Summary(item));
+
+    Console.WriteLine(item.ToString());
+  
 }
+
+Console.WriteLine();
+
+Console.WriteLine(lendingEngine.Summary());
 
 Console.ReadLine();
 
